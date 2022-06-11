@@ -6,7 +6,8 @@ const express = require('express'),
     pathdb = path.resolve(__dirname, 'database'),
     pathupload = path.resolve(__dirname, 'static'),
     md5 = require('blueimp-md5'),
-    multiparty = require("multiparty");
+    multiparty = require("multiparty")
+    history = require('connect-history-api-fallback');
 const { server = 7000 } = require('./package.json').config || {};
 const { Token, filter, responsePublic, queryUserInfo, delay } = require('./utils');
 
@@ -337,6 +338,17 @@ app.post('/user_update', async (req, res) => {
     }
 });
 
+app.use(history({
+    htmlAcceptHeaders: ['text/html', 'application/xhtml+xml'],
+    rewrites: [
+      {
+        from: /^\/.*$/,
+        to: function () {
+          return "/";
+        }
+      },
+    ]
+}))
 app.use(express.static('./static'));
 app.use((_, res) => {
     res.status(404);
