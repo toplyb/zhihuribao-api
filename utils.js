@@ -1,4 +1,4 @@
-const { secret = 'ZFPX', maxAge = '7d', server = 80 } = require('./package.json').config || {};
+const { secret = 'ZFPX', maxAge = '7d', server = 7000 } = require('./package.json').config || {};
 const jwt = require('jsonwebtoken');
 
 // 检测是否为纯粹对象

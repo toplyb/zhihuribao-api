@@ -7,7 +7,7 @@ const express = require('express'),
     pathupload = path.resolve(__dirname, 'static'),
     md5 = require('blueimp-md5'),
     multiparty = require("multiparty");
-const { server = 80 } = require('./package.json').config || {};
+const { server = 7000 } = require('./package.json').config || {};
 const { Token, filter, responsePublic, queryUserInfo, delay } = require('./utils');
 
 /*-创建&启动服务-*/
