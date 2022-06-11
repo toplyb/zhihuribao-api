@@ -50,7 +50,12 @@ const responsePublic = function responsePublic(res, flag = true, options) {
         code: flag ? 0 : 1,
         codeText: flag ? 'OK' : 'NO'
     }, options);
-    res.send(options);
+    res.format({
+        'application/json': function() {
+            res.send(options);
+        }
+    })
+    
 };
 
 // 获取用户详细信息
