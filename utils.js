@@ -67,7 +67,7 @@ const queryUserInfo = function queryUserInfo(req, userId) {
         id,
         name,
         phone,
-        pic: `http://127.0.0.1:${server}/${pic}`
+        pic: `http://zhihuapi.kuxiaosheng.com/${pic}`
     };
 };
 
