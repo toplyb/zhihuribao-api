@@ -256,7 +256,7 @@ app.post('/phone_code', async (req, res) => {
     // 发送短信
     await fs.appendFile(`${path.resolve(__dirname, '')}/code.txt`, `手机号 ${phone} 的用户于 ${new Date(time).toLocaleString('zh-CN', { hour12: false })} 发送短信验证码：${code} \n`, 'utf-8');
 
-    responsePublic(res, true);
+    responsePublic(res, true, {phoneCode: code});
 });
 
 // 登录&注册
